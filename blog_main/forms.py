@@ -9,6 +9,6 @@ class RegistrationForm(UserCreationForm):
         model = User
         fields = ('username','email','password1','password2')
         
-    # captcha = ReCaptchaField()
+    captcha = ReCaptchaField()
 
     

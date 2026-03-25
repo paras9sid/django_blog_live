@@ -59,10 +59,9 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     'dashboards',
-    # 'django_recaptcha',
+    'django_recaptcha',
     'pass_res',
-    'storages',
-    
+    'storages',   
 ]
 
 # Crispy form packs
@@ -71,11 +70,10 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-
 # Recaptcha
 
-# RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
-# RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
+RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -201,18 +199,17 @@ MEDIA_ROOT = BASE_DIR /'media'
 
 # SMTP configuration for emails
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = '587'
-# EMAIL_USE_TLS = 'True'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = 'True'
 
-# EMAIL_HOST_USER = env('EMAIL_HOST_USER')    # gmail email address
-# EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')     # APP password - gmail account in security below 2fa section
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')    # gmail email address
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')     # APP password - gmail account in security below 2fa section
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL') # gmail email address
 
-# DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL') # gmail email address
 
-
-# AWS configuration
+####### AWS configuration ##############
 
 # AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID') # - Enter your AWS Access Key ID HERE
 # AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY') # - Enter your AWS Secret Access Key ID HERE
