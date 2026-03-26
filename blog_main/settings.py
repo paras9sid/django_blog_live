@@ -109,33 +109,33 @@ WSGI_APPLICATION = 'blog_main.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'db.sqlite3',
+#     }
+# }
 
 # RDS / PostgreSQL database configuration
 
 
-# DATABASES = {
+DATABASES = {
 
-#     'default': {
+    'default': {
 
-#         'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql',
 
-#         'NAME': env('NAME'),
+        'NAME': env('NAME'),
 
-#         'USER': env('USER'),
+        'USER': env('USER'),
 
-#         'PASSWORD': env('PASSWORD'),
+        'PASSWORD': env('PASSWORD'),
 
-#         'HOST': env('HOST'),
+        'HOST': env('HOST'),
 
-#         'PORT': '5432',
-#     }
-# }
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
