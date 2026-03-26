@@ -105,18 +105,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blog_main.wsgi.application'
 
-
-# Database
+'''
+# Database - old data in sqlite db - local machine - development phase
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': 'db.sqlite3',
-#     }
-# }
-
-# RDS / PostgreSQL database configuration
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
+    }
+}
+'''
+# RDS / PostgreSQL database configuration - deployment purposes
 
 
 DATABASES = {
