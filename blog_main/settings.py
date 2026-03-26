@@ -26,10 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6wrg(u6a0r(dqp8z3^=jg#p*p&(5@^1_p5&yb_+b*&0nh+8l^j'
 
-
-# SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -209,30 +207,34 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')     # APP password - gmail acco
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL') # gmail email address
 
 
+
+
 ####### AWS configuration ##############
 
-# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID') # - Enter your AWS Access Key ID HERE
-# AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY') # - Enter your AWS Secret Access Key ID HERE
+
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID') # - Enter your AWS Access Key ID HERE
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY') # - Enter your AWS Secret Access Key ID HERE
 
 # Django 4.2 > Storage configuration for Amazon S3
 
-# AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME') # - Enter your S3 bucket name HERE
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME') # - Enter your S3 bucket name HERE
 
-
-# STORAGES = {
+STORAGES = {
 
 #     # Media file (image) management
-#     "default": {
-#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-#     },
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
     
-#     # CSS and JS file management
-#     "staticfiles": {
-#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    # CSS and JS file management
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
         
-#     },
-# }
+    },
+}
 
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-# AWS_S3_FILE_OVERWRITE = False
+AWS_S3_FILE_OVERWRITE = False
+
+#####################################################
