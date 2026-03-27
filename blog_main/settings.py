@@ -31,17 +31,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 # CUSTOM 404 ERROR PAGE - will modify css static files and css will not load- When Deploy-Production server only
 
-DEBUG = False
+# DEBUG = False
 
-ALLOWED_HOSTS = ['django-blog-app-s0km.onrender.com','*']
+# ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://django-blog-app-s0km.onrender.com']
+# CSRF_TRUSTED_ORIGINS = []
 
 # Application definition
 
@@ -106,10 +106,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blog_main.wsgi.application'
 
-'''
+
 # Database - old data in sqlite db - local machine - development phase
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -126,13 +126,13 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': env('NAME'),
+        'NAME': env('DB_NAME'),
 
-        'USER': env('USER'),
+        'USER': env('DB_USER'),
 
-        'PASSWORD': env('PASSWORD'),
+        'PASSWORD': env('DB_PASSWORD'),
 
-        'HOST': env('HOST'),
+        'HOST': env('DB_HOST'),
 
         'PORT': '5432',
     }
