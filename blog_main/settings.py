@@ -39,9 +39,9 @@ SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['django-blog-app-s0km.onrender.com','*']
 
-# CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = ['https://django-blog-app-s0km.onrender.com']
 
 # Application definition
 
