@@ -39,9 +39,9 @@ SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['blog-live-project-dev.ap-south-1.elasticbeanstalk.com/','*']
 
-# CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = ['http://blog-live-project-dev.ap-south-1.elasticbeanstalk.com/']
 
 # Application definition
 
