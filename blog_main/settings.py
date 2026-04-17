@@ -39,9 +39,9 @@ SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://djangobloglive-production.up.railway.app/', '*']
+ALLOWED_HOSTS = ['djangobloglive-production.up.railway.app', '*']
 
-CSRF_TRUSTED_ORIGINS = ['djangobloglive-production.up.railway.app']
+# CSRF_TRUSTED_ORIGINS = ['https://djangobloglive-production.up.railway.app/']
 
 # Application definition
 
