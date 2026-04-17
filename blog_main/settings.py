@@ -41,7 +41,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['djangobloglive-production.up.railway.app', '*']
 
-# CSRF_TRUSTED_ORIGINS = ['https://djangobloglive-production.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://djangobloglive-production.up.railway.app/']
 
 # Application definition
 
