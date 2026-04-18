@@ -134,7 +134,7 @@ DATABASES = {
 
         'HOST': env('DB_HOST'),
 
-        'PORT': '5432',
+        'PORT': env('DB_PORT'),
     }
 }
 
@@ -206,8 +206,6 @@ EMAIL_USE_TLS = 'True'
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')    # gmail email address
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')     # APP password - gmail account in security below 2fa section
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL') # gmail email address
-
-
 
 
 ####### AWS configuration ##############
