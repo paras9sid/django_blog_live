@@ -215,26 +215,31 @@ DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL') # gmail email address
 
 # Django 4.2 > Storage configuration for Amazon S3
 
-AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME') # - Enter your S3 bucket name HERE
+# AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME') # - Enter your S3 bucket name HERE
 
-STORAGES = {
+# STORAGES = {
 
-#     # Media file (image) management
-    "default": {
-        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-    },
+# #     # Media file (image) management
+#     "default": {
+#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+#     },
     
-    # CSS and JS file management
-    "staticfiles": {
-        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+#     # CSS and JS file management
+#     "staticfiles": {
+#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
         
-    },
-}
+#     },
+# }
 
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-AWS_S3_FILE_OVERWRITE = False
+# AWS_S3_FILE_OVERWRITE = False
 
 #####################################################
 
-#Superuser created.
+# Railway bucket - 
+
+BUCKET_NAME=env('BUCKET_NAME')
+ACCESS_KEY_ID=env('ACCESS_KEY_ID')
+SECRET_ACCESS_KEY=env('SECRET_ACCESS_KEY')
+
