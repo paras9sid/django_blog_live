@@ -235,6 +235,8 @@ STORAGES = {
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-AWS_S3_FILE_OVERWRITE = False
+# AWS_S3_FILE_OVERWRITE = False
 
 #####################################################
+
+#Superuser created.
