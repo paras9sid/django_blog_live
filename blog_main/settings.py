@@ -37,7 +37,7 @@ SECRET_KEY = env('SECRET_KEY')
 
 # CUSTOM 404 ERROR PAGE - will modify css static files and css will not load- When Deploy-Production server only
 
-DEBUG = False
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['djangobloglive-production.up.railway.app', '*']
 
