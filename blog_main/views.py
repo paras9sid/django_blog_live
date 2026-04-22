@@ -41,7 +41,7 @@ def register(request):
         if form.is_valid():
             current_user = form.save(commit=False)
             form.save()
-            send_mail("Welcome to Django Blogs","Congratulations on creating an account on Django Blogs app by Sidharth Jain!!",settings.DEFAULT_FROM_EMAIL,[current_user.email])
+            send_mail("Welcome to Django Blogs","Congratulations on creating an account on Django Blogs app - Sidharth Jain.",settings.DEFAULT_FROM_EMAIL,[current_user.email])
             return redirect('login')
         
     else:
