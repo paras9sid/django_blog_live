@@ -77,7 +77,7 @@ RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -187,7 +187,6 @@ STATICFILES_DIRS = [
     'blog_main/static',
 ]
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -262,6 +261,7 @@ BUCKET_NAME=env('BUCKET_NAME')
 ACCESS_KEY_ID=env('ACCESS_KEY_ID')
 SECRET_ACCESS_KEY=env('SECRET_ACCESS_KEY')
 ENDPOINT_URL=env('ENDPOINT_URL')
+REGION=env('REGION')
 
 # print("BUCKET:", BUCKET_NAME)
 # print("KEY:", ACCESS_KEY_ID)
