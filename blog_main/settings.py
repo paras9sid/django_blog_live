@@ -31,17 +31,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 # CUSTOM 404 ERROR PAGE - will modify css static files and css will not load- When Deploy-Production server only
 
-DEBUG = env('DEBUG')
+# DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['djangoblog.in','djangobloglive-production.up.railway.app', '*']
+# ALLOWED_HOSTS = ['djangoblog.in','djangobloglive-production.up.railway.app', '*']
 
-CSRF_TRUSTED_ORIGINS = ['https://www.djangoblog.in','https://djangobloglive-production.up.railway.app']
+# CSRF_TRUSTED_ORIGINS = ['https://www.djangoblog.in','https://djangobloglive-production.up.railway.app']
 
 # Application definition
 
@@ -77,7 +77,7 @@ RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY')
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -187,7 +187,7 @@ STATICFILES_DIRS = [
     'blog_main/static',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -243,6 +243,30 @@ DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL') # gmail email address
 # Railway bucket - 
 
 BUCKET_NAME=env('BUCKET_NAME')
+
+# STORAGES = {
+
+# #     # Media file (image) management
+#     "default": {
+#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+#     },
+    
+#     # CSS and JS file management
+#     "staticfiles": {
+#         # "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+#         "BACKEND":'whitenoise.storage.CompressedManifestStaticFilesStorage'
+        
+#     },
+# }
+
 ACCESS_KEY_ID=env('ACCESS_KEY_ID')
 SECRET_ACCESS_KEY=env('SECRET_ACCESS_KEY')
+ENDPOINT_URL=env('ENDPOINT_URL')
 
+# print("BUCKET:", BUCKET_NAME)
+# print("KEY:", ACCESS_KEY_ID)
+# print("SECRET:", SECRET_ACCESS_KEY)
+# print("ENDPOINT:", ENDPOINT_URL)
+
+#solution 
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
