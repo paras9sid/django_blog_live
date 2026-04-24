@@ -35,6 +35,8 @@ SECRET_KEY = env('SECRET_KEY')
 
 # ALLOWED_HOSTS = []
 
+###############
+
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['djangoblog.in','djangobloglive-production.up.railway.app', '*']
@@ -201,10 +203,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # SMTP configuration for emails
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_USE_TLS = 'True'
+EMAIL_BACKEND = env('EMAIL_BACKEND')
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')    # gmail email address
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')     # APP password - gmail account in security below 2fa section
