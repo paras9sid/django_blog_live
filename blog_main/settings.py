@@ -31,17 +31,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-
-# ALLOWED_HOSTS = []
-
-# CUSTOM 404 ERROR PAGE - will modify css static files and css will not load- When Deploy-Production server only
 
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['djangoblog.in','djangobloglive-production.up.railway.app', '*']
+if DEBUG:
+    ALLOWED_HOSTS = []
+    CSRF_TRUSTED_ORIGINS = []
+else:
+    ALLOWED_HOSTS = [
+        'djangoblog.in',
+        'www.djangoblog.in',
+        'djangobloglive-production.up.railway.app',
+    ]
 
-CSRF_TRUSTED_ORIGINS = ['https://www.djangoblog.in','https://djangobloglive-production.up.railway.app']
+    CSRF_TRUSTED_ORIGINS = [
+        'https://djangoblog.in',
+        'https://www.djangoblog.in',
+        'https://djangobloglive-production.up.railway.app',
+    ]
 
 # Application definition
 
@@ -187,6 +194,8 @@ STATICFILES_DIRS = [
     'blog_main/static',
 ]
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -195,8 +204,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Media (images , etc )
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR /'media'
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = BASE_DIR /'media'
 
 # SMTP configuration for emails
 
@@ -210,63 +219,20 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')     # APP password - gmail acco
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL') # gmail email address
 
 
-####### AWS configuration ##############
-
-# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID') # - Enter your AWS Access Key ID HERE
-# AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY') # - Enter your AWS Secret Access Key ID HERE
-
-# Django 4.2 > Storage configuration for Amazon S3
-
-# AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME') # - Enter your S3 bucket name HERE
-
-# STORAGES = {
-
-# #     # Media file (image) management
-#     "default": {
-#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-#     },
-    
-#     # CSS and JS file management
-#     "staticfiles": {
-#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-        
-#     },
-# }
-
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-# AWS_S3_FILE_OVERWRITE = False
-
-#####################################################
-
 # Railway bucket - 
 
-BUCKET_NAME=env('BUCKET_NAME')
+AWS_ACCESS_KEY_ID = env('ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('BUCKET_NAME') 
+AWS_S3_ENDPOINT_URL = env('ENDPOINT_URL')
 
-# STORAGES = {
+AWS_S3_REGION_NAME = "auto"
+# AWS_QUERYSTRING_AUTH = False
+AWS_QUERYSTRING_AUTH = True
+AWS_S3_FILE_OVERWRITE = False
 
-# #     # Media file (image) management
-#     "default": {
-#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-#     },
-    
-#     # CSS and JS file management
-#     "staticfiles": {
-#         # "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-#         "BACKEND":'whitenoise.storage.CompressedManifestStaticFilesStorage'
-        
-#     },
-# }
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/"
 
-ACCESS_KEY_ID=env('ACCESS_KEY_ID')
-SECRET_ACCESS_KEY=env('SECRET_ACCESS_KEY')
-ENDPOINT_URL=env('ENDPOINT_URL')
-REGION=env('REGION')
-
-# print("BUCKET:", BUCKET_NAME)
-# print("KEY:", ACCESS_KEY_ID)
-# print("SECRET:", SECRET_ACCESS_KEY)
-# print("ENDPOINT:", ENDPOINT_URL)
-
-#solution 
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+print("AWS BUCKET:", AWS_STORAGE_BUCKET_NAME)
+print("ENDPOINT:", AWS_S3_ENDPOINT_URL)
