@@ -31,15 +31,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
-DEBUG = env('DEBUG')
+# DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['djangoblog.in','djangobloglive-production.up.railway.app', '*']
+# ALLOWED_HOSTS = ['djangoblog.in','djangobloglive-production.up.railway.app', '*']
 
-CSRF_TRUSTED_ORIGINS = ['https://www.djangoblog.in','https://djangobloglive-production.up.railway.app']
+# CSRF_TRUSTED_ORIGINS = ['https://www.djangoblog.in','https://djangobloglive-production.up.railway.app']
 
 
 # Application definition
