@@ -39,7 +39,7 @@ if DEBUG:
     CSRF_TRUSTED_ORIGINS = []
 else:
     ALLOWED_HOSTS = [
-        'djangoblog.in',
+        'www.djangoblog.in',
         'djangobloglive-production.up.railway.app',
         '*',
     ]
